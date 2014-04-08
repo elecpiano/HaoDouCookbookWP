@@ -12,6 +12,16 @@ namespace HaoDouCookbookWP.Pages
 {
     public partial class HomePage : PhoneApplicationPage
     {
+        #region Lifecycle
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            topbar.ShowTitle("好豆菜谱");
+        }
+
+        #endregion
+
         public HomePage()
         {
             InitializeComponent();

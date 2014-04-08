@@ -115,10 +115,14 @@
     </Compile>
     <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="Global\ApplicationExtension.cs" />
+    <Compile Include="Global\Constants.cs" />
+    <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
