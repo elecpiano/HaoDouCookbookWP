@@ -39,7 +39,40 @@
 
                 <!-- recommendations -->
                 <phone:PanoramaItem Header="每日推荐">
-                    <Grid Background="LightSalmon">
+                    <Grid>
+                        <ScrollViewer x:Name="scrollViewerRecommendation">
+                            <ItemsControl x:Name="recommendationListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Margin="0,0,0,0"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="420" Height="192" HorizontalAlignment="Left" Margin="0,0,0,12">
+                                            <Grid Height="160" VerticalAlignment="Top">
+                                                <Grid.Clip>
+                                                    <RectangleGeometry Rect="0,0,420,160"/>
+                                                </Grid.Clip>
+                                                <controls:ContentButton Tap="Recommendation_Tap">
+                                                    <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
+                                                </controls:ContentButton>
+                                            </Grid>
+                                            
+                                            <Grid VerticalAlignment="Bottom">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image Source="{Binding UserImage}" Stretch="UniformToFill" Width="72" Height="72" Margin="0,0,0,0"/>
+                                                <TextBlock Text="{Binding Title}" Grid.Column="1" 
+                                                           Style="{StaticResource HomePage_Recommendtation_Title_Style}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                     </Grid>
                 </phone:PanoramaItem>
 

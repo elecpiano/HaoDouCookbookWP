@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using HaoDouCookbookWP.Animations;
 
 namespace HaoDouCookbookWP.Controls
@@ -30,12 +25,26 @@ namespace HaoDouCookbookWP.Controls
 
         private List<TextBlock> titleTextBlocks = new List<TextBlock>();
 
+        private bool Initiated;
+
         public TopBar()
         {
             InitializeComponent();
         }
 
-        public void Flirt()
+        private void Initiate(string title)
+        {
+            Title = title;
+            foreach (var character in Title)
+            {
+                TextBlock tb = new TextBlock() { Text = character.ToString(), Style = TitleTextStyle };
+                this.stackPanel.Children.Add(tb);
+                titleTextBlocks.Add(tb);
+            }
+            Initiated = true;
+        }
+
+        public void Flirt(bool swipeFromRight = true)
         {
             int index = 0;
             foreach (var tb in titleTextBlocks)
@@ -46,18 +55,18 @@ namespace HaoDouCookbookWP.Controls
                             fe2 => MoveAnimation.MoveFromTo(fe2, 0, 8, 0, 0, Constants.TOP_BAR_TITLE_DURATION_3, null))));
                 index++;
             }
+
+            kitchenWares.Hit(swipeFromRight);
         }
 
         public void ShowTitle(string title)
         {
-            Title = title;
-            foreach (var character in Title)
+            if (!Initiated)
             {
-                TextBlock tb = new TextBlock() { Text = character.ToString(), Style = TitleTextStyle };
-                this.stackPanel.Children.Add(tb);
-                titleTextBlocks.Add(tb);
+                Initiate(title);
             }
             Flirt();
         }
+
     }
 }

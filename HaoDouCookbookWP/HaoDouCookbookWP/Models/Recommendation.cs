@@ -20,6 +20,6 @@ namespace HaoDouCookbookWP.Models
         public string FoodImage { get; set; }
 
         [DataMember(Name = "img2")]
-        public string SubmitterImage { get; set; }
+        public string UserImage { get; set; }
     }
 }

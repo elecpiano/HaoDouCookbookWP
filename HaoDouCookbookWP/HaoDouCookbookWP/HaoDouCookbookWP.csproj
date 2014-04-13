@@ -107,8 +107,14 @@
       <DependentUpon>FadingImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageToggleButton.cs" />
+    <Compile Include="Controls\KitchenWares.xaml.cs">
+      <DependentUpon>KitchenWares.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ListMoreButton.xaml.cs">
       <DependentUpon>ListMoreButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RecommendationItem.xaml.cs">
+      <DependentUpon>RecommendationItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
@@ -126,12 +132,27 @@
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RecipeDetailPage.xaml.cs">
+      <DependentUpon>RecipeDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\BitmapImageExtension.cs" />
+    <Compile Include="Utility\Cryptography\CryptographyHelper.cs" />
+    <Compile Include="Utility\Cryptography\MD5.cs" />
+    <Compile Include="Utility\DataContextGetter.cs" />
+    <Compile Include="Utility\DataLoader.cs" />
+    <Compile Include="Utility\DataTemplateSelector.cs" />
+    <Compile Include="Utility\HttpExtensions.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\IsolatedStorageHelper.cs" />
+    <Compile Include="Utility\JsonSerializer.cs" />
+    <Compile Include="Utility\NetworkHelper.cs" />
+    <Compile Include="Utility\ReminderHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -146,9 +167,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\KitchenWares.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ListMoreButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RecommendationItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TopBar.xaml">
       <SubType>Designer</SubType>
@@ -162,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\RecipeDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\AppStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +207,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\KitchenWare1.png" />
+    <Content Include="Assets\Images\KitchenWare2.png" />
+    <Content Include="Assets\Images\KitchenWare3.png" />
+    <Content Include="Assets\TestImages\1.jpg" />
+    <Content Include="Assets\TestImages\2.jpg" />
+    <Content Include="Assets\TestImages\3.jpg" />
+    <Content Include="Assets\TestImages\user.jpg" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -196,9 +236,7 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

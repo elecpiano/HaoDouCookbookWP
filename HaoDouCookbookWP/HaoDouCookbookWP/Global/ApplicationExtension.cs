@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinterOlympics2014WP
+namespace HaoDouCookbookWP
 {
     public partial class App
     {
