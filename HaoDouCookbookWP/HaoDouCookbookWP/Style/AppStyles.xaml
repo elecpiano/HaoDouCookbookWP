@@ -64,7 +64,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Duration="0" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="content" />
                                         <DoubleAnimation Duration="0" To="0.95" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="content" />
-                                        <DoubleAnimation Duration="0" To="0.8" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="content"/>
+                                        <DoubleAnimation Duration="0" To="0.9" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="content"/>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -157,6 +157,10 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
+    <Style x:Key="TileMaskGrid_Style" TargetType="Grid">
+        <Setter Property="Background" Value="#a0000000"/>
+    </Style>
+
     <!--home page-->
     <Style x:Key="HomePage_SectionHeader_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="32"/>
@@ -187,5 +191,18 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
+    <Style x:Key="HomePage_TopicTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="HomePage_UserBorder_Style" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#ffffffff"/>
+        <Setter Property="BorderThickness" Value="4"/>
+    </Style>
 
 </ResourceDictionary>

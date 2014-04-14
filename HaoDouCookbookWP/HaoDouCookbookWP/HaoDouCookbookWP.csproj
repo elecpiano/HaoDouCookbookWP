@@ -122,6 +122,9 @@
     <Compile Include="Controls\TopBar.xaml.cs">
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
     <Compile Include="Global\ApplicationExtension.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -191,6 +195,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,6 +226,7 @@
     <Content Include="Assets\Images\KitchenWare1.png" />
     <Content Include="Assets\Images\KitchenWare2.png" />
     <Content Include="Assets\Images\KitchenWare3.png" />
+    <Content Include="Assets\Images\KitchenWareShadow1.png" />
     <Content Include="Assets\TestImages\1.jpg" />
     <Content Include="Assets\TestImages\2.jpg" />
     <Content Include="Assets\TestImages\3.jpg" />

@@ -22,15 +22,22 @@ namespace HaoDouCookbookWP.Pages
         public HomePage()
         {
             InitializeComponent();
+
             recommendationListBox.ItemsSource = recommendationList;
+            topicListBox.ItemsSource = topicList;
+
             InitCategories();
+            InitUserCenter();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            
             topbar.ShowTitle("好豆菜谱");
+
             LoadRecommendations_Test();
+            LoadTopics_Test();
         }
 
         #endregion
@@ -65,15 +72,19 @@ namespace HaoDouCookbookWP.Pages
             {
                 case 0:
                     HideCategories(true);
+                    HideUserCenter(true);
                     break;
                 case 1:
                     ShowCategories();
+                    HideUserCenter(true);
                     break;
                 case 2:
                     HideCategories(true);
+                    HideUserCenter(true);
                     break;
                 case 3:
                     HideCategories(true);
+                    ShowUserCenter();
                     break;
                 default:
                     break;
@@ -108,17 +119,6 @@ namespace HaoDouCookbookWP.Pages
                     scrollViewerRecommendation.ScrollToVerticalOffset(0);
                     //snow1.IsBusy = false;
                 });
-        }
-
-        private void LoadRecommendations_Test()
-        {
-            recommendationList.Clear();
-            recommendationList.Add(new Recommendation() { Title = "宫保鸡丁", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
-            recommendationList.Add(new Recommendation() { Title = "鱼香肉丝", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
-            recommendationList.Add(new Recommendation() { Title = "番茄鸡蛋", FoodImage = "/Assets/TestImages/3.jpg", UserImage = "/Assets/TestImages/user.jpg" });
-            recommendationList.Add(new Recommendation() { Title = "宫保鸡丁", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
-            recommendationList.Add(new Recommendation() { Title = "鱼香肉丝", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
-            recommendationList.Add(new Recommendation() { Title = "番茄鸡蛋", FoodImage = "/Assets/TestImages/3.jpg", UserImage = "/Assets/TestImages/user.jpg" });
         }
 
         private void Recommendation_Tap(object sender, GestureEventArgs e)
@@ -173,11 +173,11 @@ namespace HaoDouCookbookWP.Pages
 
         private void ShowCategories()
         {
-            category1.Show(200d, CategoryAnimationDuration);
-            category2.Show(270d, CategoryAnimationDuration);
-            category3.Show(340d, CategoryAnimationDuration);
-            category4.Show(410d, CategoryAnimationDuration);
-            category5.Show(480d, CategoryAnimationDuration);
+            category1.Show(100d, CategoryAnimationDuration);
+            category2.Show(170d, CategoryAnimationDuration);
+            category3.Show(240d, CategoryAnimationDuration);
+            category4.Show(310d, CategoryAnimationDuration);
+            category5.Show(380d, CategoryAnimationDuration);
         }
 
         private void HideCategories(bool withTransition)
@@ -187,6 +187,98 @@ namespace HaoDouCookbookWP.Pages
             category3.Hide(withTransition, 100d, CategoryAnimationDurationLong);
             category4.Hide(withTransition, 50d, CategoryAnimationDurationLong);
             category5.Hide(withTransition, 10d, CategoryAnimationDurationLong);
+        }
+
+        #endregion
+
+        #region Topic
+
+        private void Topic_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        ObservableCollection<Topic> topicList = new ObservableCollection<Topic>();
+
+
+        #endregion
+
+        #region Test
+
+
+        bool recommendationLoaded = false;
+        private void LoadRecommendations_Test()
+        {
+            if (recommendationLoaded)
+            {
+                return;
+            }
+            recommendationList.Clear();
+            recommendationList.Add(new Recommendation() { Title = "荠菜鸡丝合子", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "宫保鸡丁", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "鱼香肉丝", FoodImage = "/Assets/TestImages/3.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "番茄鸡蛋", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "荠菜鸡丝合子", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "宫保鸡丁", FoodImage = "/Assets/TestImages/3.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "鱼香肉丝", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationList.Add(new Recommendation() { Title = "番茄鸡蛋", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+            recommendationLoaded = true;
+        }
+
+        bool topicLoaded = false;
+        private void LoadTopics_Test()
+        {
+            if (topicLoaded)
+            {
+                return;
+            }
+            topicList.Clear();
+            topicList.Add(new Topic() { Title = "别不把小葱当菜，春季小葱营", Image = "/Assets/TestImages/1.jpg" });
+            topicList.Add(new Topic() { Title = "春季让味道香辣的蒜苗来守护", Image = "/Assets/TestImages/2.jpg" });
+            topicList.Add(new Topic() { Title = "春季魔芋减肥瘦身靓容颜", Image = "/Assets/TestImages/3.jpg" });
+            topicList.Add(new Topic() { Title = "别不把小葱当菜，春季小葱营", Image = "/Assets/TestImages/1.jpg" });
+            topicList.Add(new Topic() { Title = "春季让味道香辣的蒜苗来守护", Image = "/Assets/TestImages/2.jpg" });
+            topicList.Add(new Topic() { Title = "春季魔芋减肥瘦身靓容颜", Image = "/Assets/TestImages/3.jpg" });
+            topicList.Add(new Topic() { Title = "别不把小葱当菜，春季小葱营", Image = "/Assets/TestImages/1.jpg" });
+            topicList.Add(new Topic() { Title = "春季让味道香辣的蒜苗来守护", Image = "/Assets/TestImages/2.jpg" });
+            topicList.Add(new Topic() { Title = "春季魔芋减肥瘦身靓容颜", Image = "/Assets/TestImages/3.jpg" });
+            topicList.Add(new Topic() { Title = "别不把小葱当菜，春季小葱营", Image = "/Assets/TestImages/1.jpg" });
+            topicList.Add(new Topic() { Title = "春季让味道香辣的蒜苗来守护", Image = "/Assets/TestImages/2.jpg" });
+            topicList.Add(new Topic() { Title = "春季魔芋减肥瘦身靓容颜", Image = "/Assets/TestImages/3.jpg" });
+            topicLoaded = true;
+        }
+
+        #endregion
+
+        #region User Center
+
+        private void InitUserCenter()
+        {
+            userCenterItem1.Init("喜欢的菜谱", "#FF1BA1E2");
+            userCenterItem1.Init("关注的专辑", "#FFA4C400");
+            HideUserCenter(false);
+        }
+
+        private void ShowUserCenter()
+        {
+            userCenterItem1.Show(100d, CategoryAnimationDuration);
+            userCenterItem2.Show(200d, CategoryAnimationDuration);
+        }
+
+        private void HideUserCenter(bool withTransition)
+        {
+            userCenterItem1.Hide(withTransition, 50d, CategoryAnimationDurationLong);
+            userCenterItem2.Hide(withTransition, 10d, CategoryAnimationDurationLong);
+        }
+
+        private void userCenterItem1_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void userCenterItem2_Tap(object sender, GestureEventArgs e)
+        {
+
         }
 
         #endregion

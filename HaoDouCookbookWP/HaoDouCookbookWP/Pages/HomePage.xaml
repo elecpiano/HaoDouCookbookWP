@@ -11,7 +11,6 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -61,11 +60,16 @@
 
                                             <Grid VerticalAlignment="Bottom">
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto"/>
                                                     <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Image Source="{Binding UserImage}" Stretch="UniformToFill" Width="72" Height="72" Margin="0,0,0,0"/>
-                                                <TextBlock Text="{Binding Title}" Grid.Column="1" 
+                                                <controls:User Grid.Column="1" DataContext="{Binding UserImage}" IsHitTestVisible="False"
+                                                               Margin="0,0,5,7" RenderTransformOrigin="0.5,0.5">
+                                                    <controls:User.RenderTransform>
+                                                        <CompositeTransform Rotation="7" TranslateX="0" TranslateY="0"/>
+                                                    </controls:User.RenderTransform>
+                                                </controls:User>
+                                                <TextBlock Text="{Binding Title}" Grid.Column="0" 
                                                            Style="{StaticResource HomePage_Recommendtation_Title_Style}"/>
                                             </Grid>
                                         </Grid>
@@ -113,15 +117,64 @@
                     </Grid>
                 </phone:PanoramaItem>
 
-                <!-- albumns -->
+                <!-- topic -->
                 <phone:PanoramaItem Header="专辑">
-                    <Grid Background="LightCoral">
+                    <Grid >
+                        <ScrollViewer x:Name="scrollViewerTopic">
+                            <ItemsControl x:Name="topicListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel Margin="0,0,0,0"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="420" Height="192" HorizontalAlignment="Left" Margin="0,0,0,12">
+                                            <Grid>
+                                                <Grid.Clip>
+                                                    <RectangleGeometry Rect="0,0,420,192"/>
+                                                </Grid.Clip>
+                                                <controls:ContentButton Tap="Topic_Tap">
+                                                    <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-11,-4"/>
+                                                </controls:ContentButton>
+                                            </Grid>
+
+                                            <Grid VerticalAlignment="Bottom" Style="{StaticResource TileMaskGrid_Style}">
+                                                <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_TopicTitle_Style}" />
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                     </Grid>
                 </phone:PanoramaItem>
 
                 <!-- user center -->
                 <phone:PanoramaItem Header="个人中心">
-                    <Grid Background="LightGreen">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                            
+                        </StackPanel>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0"  
+                                                Tap="userCenterItem1_Tap">
+                            <controls:CategoryButton x:Name="userCenterItem1" />
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="1" Width="204" Height="204" Margin="12,12,0,0"  
+                                                Tap="userCenterItem2_Tap">
+                            <controls:CategoryButton x:Name="userCenterItem2" />
+                        </controls:ContentButton>
                     </Grid>
                 </phone:PanoramaItem>
             </phone:Panorama>
