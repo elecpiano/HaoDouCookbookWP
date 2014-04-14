@@ -158,7 +158,46 @@
     </Style>
 
     <Style x:Key="TileMaskGrid_Style" TargetType="Grid">
-        <Setter Property="Background" Value="#a0000000"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop/>
+                    <GradientStop Color="#E5000000" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TileFadeGrid_Style" TargetType="Grid">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="Transparent"/>
+                    <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TileEdge1L_Style" TargetType="Image">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="Source" Value="/Assets/Images/TileEdge1L.png"/>
+        <Setter Property="Stretch" Value="None"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="-1,0,0,0"/>
+    </Style>
+
+    <Style x:Key="TileEdge2L_Style" TargetType="Image">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="Source" Value="/Assets/Images/TileEdge2L.png"/>
+        <Setter Property="Stretch" Value="None"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
     </Style>
 
     <!--home page-->
@@ -176,14 +215,14 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="HomePage_Recommendtation_Title_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+    <Style x:Key="HomePage_RecommendtationTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Foreground" Value="#ff000000"/>
-        <Setter Property="Margin" Value="4,0,0,0"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="Margin" Value="16,12,8,8"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
-    <Style x:Key="HomePage_Tile_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+    <Style x:Key="HomePage_CategoryTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
         <Setter Property="Margin" Value="0,0,0,0"/>
@@ -192,9 +231,9 @@
     </Style>
 
     <Style x:Key="HomePage_TopicTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Margin" Value="16,12,8,8"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -203,6 +242,13 @@
     <Style x:Key="HomePage_UserBorder_Style" TargetType="Border">
         <Setter Property="BorderBrush" Value="#ffffffff"/>
         <Setter Property="BorderThickness" Value="4"/>
+    </Style>
+
+    <Style x:Key="HomePage_LoginText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="36"/>
+        <Setter Property="Foreground" Value="#ffa0a0a0"/>
+        <Setter Property="Margin" Value="12,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
 </ResourceDictionary>

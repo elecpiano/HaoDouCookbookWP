@@ -17,9 +17,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--top bar-->
-        <controls:TopBar x:Name="topbar"/>
-
         <!--content panel-->
         <Grid Grid.Row="1" x:Name="contentPanel">
             <phone:Panorama x:Name="panorama" Margin="0,0,0,0" 
@@ -48,30 +45,24 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Width="420" Height="192" HorizontalAlignment="Left" Margin="0,0,0,12">
-                                            <Grid Height="160" VerticalAlignment="Top">
-                                                <Grid.Clip>
-                                                    <RectangleGeometry Rect="0,0,420,160"/>
-                                                </Grid.Clip>
-                                                <controls:ContentButton Tap="Recommendation_Tap">
-                                                    <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
-                                                </controls:ContentButton>
+                                        <Grid Width="420" Height="204" Margin="0,0,0,12">
+                                            <Grid.Clip>
+                                                <RectangleGeometry Rect="0,0,420,204"/>
+                                            </Grid.Clip>
+                                            <controls:ContentButton Tap="Recommendation_Tap">
+                                                <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
+                                            </controls:ContentButton>
+                                            <Grid VerticalAlignment="Bottom" Style="{StaticResource TileMaskGrid_Style}" IsHitTestVisible="False">
+                                                <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_RecommendtationTitle_Style}"/>
                                             </Grid>
-
-                                            <Grid VerticalAlignment="Bottom">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-                                                <controls:User Grid.Column="1" DataContext="{Binding UserImage}" IsHitTestVisible="False"
-                                                               Margin="0,0,5,7" RenderTransformOrigin="0.5,0.5">
-                                                    <controls:User.RenderTransform>
-                                                        <CompositeTransform Rotation="7" TranslateX="0" TranslateY="0"/>
-                                                    </controls:User.RenderTransform>
-                                                </controls:User>
-                                                <TextBlock Text="{Binding Title}" Grid.Column="0" 
-                                                           Style="{StaticResource HomePage_Recommendtation_Title_Style}"/>
-                                            </Grid>
+                                            <Grid Style="{StaticResource TileFadeGrid_Style}"/>
+                                            <controls:User DataContext="{Binding UserImage}" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
+                                                               Margin="0,0,6,-2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                                <controls:User.RenderTransform>
+                                                    <CompositeTransform Rotation="9" TranslateX="0" TranslateY="0"/>
+                                                </controls:User.RenderTransform>
+                                            </controls:User>
+                                            <Image Style="{StaticResource TileEdge2L_Style}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
@@ -114,6 +105,8 @@
                                                 Tap="category5_Tap">
                             <controls:CategoryButton x:Name="category5" />
                         </controls:ContentButton>
+
+                        <controls:WhiteBands x:Name="whiteBands" Grid.RowSpan="4" Grid.ColumnSpan="3"/>
                     </Grid>
                 </phone:PanoramaItem>
 
@@ -129,10 +122,10 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Width="420" Height="192" HorizontalAlignment="Left" Margin="0,0,0,12">
+                                        <Grid Width="420" Height="204" Margin="0,0,0,12">
                                             <Grid>
                                                 <Grid.Clip>
-                                                    <RectangleGeometry Rect="0,0,420,192"/>
+                                                    <RectangleGeometry Rect="0,0,420,204"/>
                                                 </Grid.Clip>
                                                 <controls:ContentButton Tap="Topic_Tap">
                                                     <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-11,-4"/>
@@ -142,6 +135,8 @@
                                             <Grid VerticalAlignment="Bottom" Style="{StaticResource TileMaskGrid_Style}">
                                                 <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_TopicTitle_Style}" />
                                             </Grid>
+
+                                            <Image Style="{StaticResource TileEdge1L_Style}"/>
                                         </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
@@ -164,8 +159,9 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-                            
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,0">
+                            <controls:User x:Name="account"/>
+                            <TextBlock Text="登录" Style="{StaticResource HomePage_LoginText_Style}"/>
                         </StackPanel>
                         <controls:ContentButton Grid.Row="1" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0"  
                                                 Tap="userCenterItem1_Tap">
@@ -175,11 +171,17 @@
                                                 Tap="userCenterItem2_Tap">
                             <controls:CategoryButton x:Name="userCenterItem2" />
                         </controls:ContentButton>
+
+                        <controls:Bubbles x:Name="bubbles" Grid.Row="1" Grid.ColumnSpan="2" Width="420"/>
+
                     </Grid>
                 </phone:PanoramaItem>
             </phone:Panorama>
 
         </Grid>
+
+        <!--top bar-->
+        <controls:TopBar x:Name="topbar"/>
 
     </Grid>
 

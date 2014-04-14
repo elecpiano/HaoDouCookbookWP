@@ -15,6 +15,6 @@
                 <CompositeTransform TranslateY="20"/>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock x:Name="titleTextBlock" Text="ABCD" Style="{StaticResource HomePage_Tile_Text_Style}"/>
+        <TextBlock x:Name="titleTextBlock" Text="" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
     </Grid>
 </UserControl>

@@ -21,7 +21,15 @@
         <controls:TopBar x:Name="topbar"/>
 
         <!--content panel-->
-        <Grid Grid.Row="1" x:Name="contentPanel">
+        <Grid Grid.Row="1" x:Name="contentPanel" Background="LightBlue">
+        	<Grid Height="100" Width="100">
+        		<Grid.Background>
+        			<LinearGradientBrush EndPoint="0.8,0.5" StartPoint="0,0.5">
+        				<GradientStop Color="Transparent"/>
+        				<GradientStop Color="#E5FFFFFF" Offset="1"/>
+        			</LinearGradientBrush>
+        		</Grid.Background>
+        	</Grid>
 
         </Grid>
 

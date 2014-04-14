@@ -26,6 +26,7 @@ namespace HaoDouCookbookWP.Pages
             recommendationListBox.ItemsSource = recommendationList;
             topicListBox.ItemsSource = topicList;
 
+            BuildApplicationBar();
             InitCategories();
             InitUserCenter();
         }
@@ -178,6 +179,8 @@ namespace HaoDouCookbookWP.Pages
             category3.Show(240d, CategoryAnimationDuration);
             category4.Show(310d, CategoryAnimationDuration);
             category5.Show(380d, CategoryAnimationDuration);
+
+            whiteBands.Show();
         }
 
         private void HideCategories(bool withTransition)
@@ -187,6 +190,8 @@ namespace HaoDouCookbookWP.Pages
             category3.Hide(withTransition, 100d, CategoryAnimationDurationLong);
             category4.Hide(withTransition, 50d, CategoryAnimationDurationLong);
             category5.Hide(withTransition, 10d, CategoryAnimationDurationLong);
+
+            whiteBands.Hide();
         }
 
         #endregion
@@ -255,20 +260,23 @@ namespace HaoDouCookbookWP.Pages
         private void InitUserCenter()
         {
             userCenterItem1.Init("喜欢的菜谱", "#FF1BA1E2");
-            userCenterItem1.Init("关注的专辑", "#FFA4C400");
+            userCenterItem2.Init("关注的专辑", "#FFA4C400");
             HideUserCenter(false);
+            account.DataContext = "/Assets/TestImages/user.jpg";
         }
 
         private void ShowUserCenter()
         {
             userCenterItem1.Show(100d, CategoryAnimationDuration);
             userCenterItem2.Show(200d, CategoryAnimationDuration);
+            bubbles.IsBusy = true;
         }
 
         private void HideUserCenter(bool withTransition)
         {
             userCenterItem1.Hide(withTransition, 50d, CategoryAnimationDurationLong);
             userCenterItem2.Hide(withTransition, 10d, CategoryAnimationDurationLong);
+            bubbles.IsBusy = false;
         }
 
         private void userCenterItem1_Tap(object sender, GestureEventArgs e)
@@ -283,5 +291,54 @@ namespace HaoDouCookbookWP.Pages
 
         #endregion
 
+        #region App Bar
+
+        ApplicationBarIconButton appBarSearch;
+        ApplicationBarIconButton appBarRefresh;
+        ApplicationBarMenuItem appBarSetting;
+
+        private void BuildApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+
+            // search
+            appBarSearch = new ApplicationBarIconButton(new Uri("/Assets/AppBar/search.png", UriKind.Relative));
+            appBarSearch.Text = "搜索";
+            appBarSearch.Click += appBarSearch_Click;
+            ApplicationBar.Buttons.Add(appBarSearch);
+
+            // refresh
+            appBarRefresh = new ApplicationBarIconButton(new Uri("/Assets/AppBar/refresh.png", UriKind.Relative));
+            appBarRefresh.Text = "刷新";
+            appBarRefresh.Click += appBarRefresh_Click;
+            ApplicationBar.Buttons.Add(appBarRefresh);
+
+            appBarSetting = new ApplicationBarMenuItem("设置");
+            appBarSetting.Click += appBarSetting_Click;
+            ApplicationBar.MenuItems.Add(appBarSetting);
+        }
+
+        void appBarRefresh_Click(object sender, EventArgs e)
+        {
+        }
+
+        void appBarSearch_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        void appBarSetting_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
+        }
+
+        private void ClearAppBar()
+        {
+            ApplicationBar.Buttons.Clear();
+            ApplicationBar.MenuItems.Clear();
+        }
+
+        #endregion
     }
 }

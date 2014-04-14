@@ -7,7 +7,7 @@
     Height="90" Width="90">
     
     <Grid x:Name="LayoutRoot">
-        <Border BorderBrush="#80000000" BorderThickness="1">
+        <Border BorderBrush="#80000000" BorderThickness="1,1,1,1">
             <Border BorderBrush="#ffffffff" BorderThickness="3">
                 <Image Source="{Binding}"/>
             </Border>
