@@ -58,7 +58,7 @@
                                                     <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
                                                 </controls:ContentButton>
                                             </Grid>
-                                            
+
                                             <Grid VerticalAlignment="Bottom">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto"/>
@@ -78,7 +78,38 @@
 
                 <!-- categories -->
                 <phone:PanoramaItem Header="菜谱分类">
-                    <Grid Background="LightBlue">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:ContentButton Grid.Row="0" Grid.Column="0" Width="204" Height="204" Margin="0,0,0,0" 
+                                                Tap="category1_Tap">
+                            <controls:CategoryButton x:Name="category1" />
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="0" Grid.Column="1" Width="204" Height="204" Margin="12,0,0,0" 
+                                                Tap="category2_Tap">
+                            <controls:CategoryButton x:Name="category2" />
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0"  
+                                                Tap="category3_Tap">
+                            <controls:CategoryButton x:Name="category3" />
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="1" Width="204" Height="204" Margin="12,12,0,0"  
+                                                Tap="category4_Tap">
+                            <controls:CategoryButton x:Name="category4" />
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="2" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0" 
+                                                Tap="category5_Tap">
+                            <controls:CategoryButton x:Name="category5" />
+                        </controls:ContentButton>
                     </Grid>
                 </phone:PanoramaItem>
 

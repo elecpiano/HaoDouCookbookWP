@@ -99,6 +99,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CategoryButton.xaml.cs">
+      <DependentUpon>CategoryButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ContentButton.cs" />
     <Compile Include="Controls\CuteToast.xaml.cs">
       <DependentUpon>CuteToast.xaml</DependentUpon>
@@ -142,6 +145,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utility\BitmapImageExtension.cs" />
+    <Compile Include="Utility\ColorConverter.cs" />
     <Compile Include="Utility\Cryptography\CryptographyHelper.cs" />
     <Compile Include="Utility\Cryptography\MD5.cs" />
     <Compile Include="Utility\DataContextGetter.cs" />
@@ -159,6 +163,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Controls\CategoryButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\CuteToast.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

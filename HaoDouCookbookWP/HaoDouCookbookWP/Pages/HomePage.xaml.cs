@@ -11,6 +11,7 @@ using System.Windows.Input;
 using HaoDouCookbookWP.Models;
 using HaoDouCookbookWP.Utility;
 using System.Collections.ObjectModel;
+using HaoDouCookbookWP.Animations;
 
 namespace HaoDouCookbookWP.Pages
 {
@@ -22,6 +23,7 @@ namespace HaoDouCookbookWP.Pages
         {
             InitializeComponent();
             recommendationListBox.ItemsSource = recommendationList;
+            InitCategories();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -62,12 +64,16 @@ namespace HaoDouCookbookWP.Pages
             switch (panorama.SelectedIndex)
             {
                 case 0:
+                    HideCategories(true);
                     break;
                 case 1:
+                    ShowCategories();
                     break;
                 case 2:
+                    HideCategories(true);
                     break;
                 case 3:
+                    HideCategories(true);
                     break;
                 default:
                     break;
@@ -104,14 +110,6 @@ namespace HaoDouCookbookWP.Pages
                 });
         }
 
-        private void Recommendation_Tap(object sender, GestureEventArgs e)
-        {
-            Recommendation rec = sender.GetDataContext<Recommendation>();
-            string[] paramArray = new string[] { NaviParam.RECIPE_ID, rec.ID, NaviParam.RECIPE_NAME, rec.Title };
-            string strUri = string.Format("/Pages/RecipeDetailPage.xaml?{0}={1}&{2}={3}", paramArray);
-            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
-        }
-
         private void LoadRecommendations_Test()
         {
             recommendationList.Clear();
@@ -121,6 +119,74 @@ namespace HaoDouCookbookWP.Pages
             recommendationList.Add(new Recommendation() { Title = "宫保鸡丁", FoodImage = "/Assets/TestImages/1.jpg", UserImage = "/Assets/TestImages/user.jpg" });
             recommendationList.Add(new Recommendation() { Title = "鱼香肉丝", FoodImage = "/Assets/TestImages/2.jpg", UserImage = "/Assets/TestImages/user.jpg" });
             recommendationList.Add(new Recommendation() { Title = "番茄鸡蛋", FoodImage = "/Assets/TestImages/3.jpg", UserImage = "/Assets/TestImages/user.jpg" });
+        }
+
+        private void Recommendation_Tap(object sender, GestureEventArgs e)
+        {
+            Recommendation rec = sender.GetDataContext<Recommendation>();
+            string[] paramArray = new string[] { NaviParam.RECIPE_ID, rec.ID, NaviParam.RECIPE_NAME, rec.Title };
+            string strUri = string.Format("/Pages/RecipeDetailPage.xaml?{0}={1}&{2}={3}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
+        }
+
+        #endregion
+
+        #region Categories
+
+        double CategoryAnimationDuration = 400d;
+        double CategoryAnimationDurationLong = 500d;
+
+        private void InitCategories()
+        {
+            category1.Init("菜式菜品", "#FF1BA1E2");
+            category2.Init("菜系", "#FFA4C400");
+            category3.Init("人群功效", "#FFC72D57");
+            category4.Init("食材", "#FFF0A30A");
+            category5.Init("场景", "#FF76608A");
+            HideCategories(false);
+        }
+
+        private void category1_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void category2_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void category3_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void category4_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void category5_Tap(object sender, GestureEventArgs e)
+        {
+
+        }
+
+        private void ShowCategories()
+        {
+            category1.Show(200d, CategoryAnimationDuration);
+            category2.Show(270d, CategoryAnimationDuration);
+            category3.Show(340d, CategoryAnimationDuration);
+            category4.Show(410d, CategoryAnimationDuration);
+            category5.Show(480d, CategoryAnimationDuration);
+        }
+
+        private void HideCategories(bool withTransition)
+        {
+            category1.Hide(withTransition, 200d, CategoryAnimationDurationLong);
+            category2.Hide(withTransition, 150d, CategoryAnimationDurationLong);
+            category3.Hide(withTransition, 100d, CategoryAnimationDurationLong);
+            category4.Hide(withTransition, 50d, CategoryAnimationDurationLong);
+            category5.Hide(withTransition, 10d, CategoryAnimationDurationLong);
         }
 
         #endregion
