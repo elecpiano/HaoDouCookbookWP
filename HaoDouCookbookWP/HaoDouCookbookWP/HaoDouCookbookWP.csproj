@@ -227,6 +227,8 @@
     <Content Include="Assets\Images\KitchenWare2.png" />
     <Content Include="Assets\Images\KitchenWare3.png" />
     <Content Include="Assets\Images\KitchenWareShadow1.png" />
+    <Content Include="Assets\Images\KitchenWareShadow2.png" />
+    <Content Include="Assets\Images\KitchenWareShadow3.png" />
     <Content Include="Assets\TestImages\1.jpg" />
     <Content Include="Assets\TestImages\2.jpg" />
     <Content Include="Assets\TestImages\3.jpg" />
