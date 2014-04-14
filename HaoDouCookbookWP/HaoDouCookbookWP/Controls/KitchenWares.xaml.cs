@@ -18,13 +18,19 @@ namespace HaoDouCookbookWP.Controls
             InitializeComponent();
         }
 
-        public void Hit(bool fromRight)
+        public void Hit(bool? fromRight = null)
         {
-            if (fromRight)
+            if (fromRight == null)
+            {
+                int num = Global.RANDOM.Next(0, 2);
+                fromRight = num == 0 ? true : false;
+            }
+
+            if (fromRight == true)
             {
                 this.StoryHitFromRight.Begin();
             }
-            else
+            else if (fromRight == false)
             {
                 this.StoryHitFromLeft.Begin();
             }

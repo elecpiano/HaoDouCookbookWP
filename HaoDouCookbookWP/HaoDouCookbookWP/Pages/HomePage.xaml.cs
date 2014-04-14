@@ -35,7 +35,7 @@ namespace HaoDouCookbookWP.Pages
 
         #region Panorama Selection
 
-        int parnoramaPrevoiusSelectedIndex = 3;
+        int parnoramaPrevoiusSelectedIndex = 0;
 
         private void Panorama_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

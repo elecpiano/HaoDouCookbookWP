@@ -25,4 +25,9 @@ namespace HaoDouCookbookWP
         public const string RECIPE_ID = "recipe_id";
         public const string RECIPE_NAME = "recipe_name";
     }
+
+    public class Global
+    {
+        public static Random RANDOM = new Random();
+    }
 }

@@ -44,7 +44,7 @@ namespace HaoDouCookbookWP.Controls
             Initiated = true;
         }
 
-        public void Flirt(bool swipeFromRight = true)
+        public void Flirt(bool? swipeFromRight = null)
         {
             int index = 0;
             foreach (var tb in titleTextBlocks)
