@@ -242,23 +242,29 @@ namespace HaoDouCookbookWP.Pages
 
         ApplicationBarIconButton appBarLike;
         ApplicationBarIconButton appBarComment;
+        ApplicationBarIconButton appBarSubmit;
 
         private void BuildApplicationBar()
         {
             ApplicationBar = new ApplicationBar();
-            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+            //ApplicationBar.Mode = ApplicationBarMode.Minimized;
 
             // like
             appBarLike = new ApplicationBarIconButton(new Uri("/Assets/AppBar/like.png", UriKind.Relative));
-            appBarLike.Text = "";//TO-DO
+            appBarLike.Text = "like";//TO-DO
             appBarLike.Click += appBarLike_Click;
 
             // comment
             appBarComment = new ApplicationBarIconButton(new Uri("/Assets/AppBar/edit.png", UriKind.Relative));//TO-DO
-            appBarComment.Text = "";//TO-DO
+            appBarComment.Text = "comment";//TO-DO
             appBarComment.Click += appBarComment_Click;
 
-            ShowAppBar();
+            // comment
+            appBarSubmit = new ApplicationBarIconButton(new Uri("/Assets/AppBar/upload.png", UriKind.Relative));//TO-DO
+            appBarSubmit.Text = "submit";//TO-DO
+            appBarSubmit.Click += appBarSubmit_Click;
+
+            SetAppBarDefault();
         }
 
         void appBarLike_Click(object sender, EventArgs e)
@@ -267,12 +273,28 @@ namespace HaoDouCookbookWP.Pages
 
         void appBarComment_Click(object sender, EventArgs e)
         {
+            ClearAppBar();
+            SetAppBarForComment();
+            ShowCommentPopup();
+        }
+        private void appBarSubmit_Click(object sender, EventArgs e)
+        {
+            bool canClosePopup = TrySubmitComment();
+            if (canClosePopup)
+            {
+                popupContainer.Close(null);
+            }
         }
 
-        private void ShowAppBar()
+        private void SetAppBarDefault()
         {
             ApplicationBar.Buttons.Add(appBarLike);
             ApplicationBar.Buttons.Add(appBarComment);
+        }
+
+        private void SetAppBarForComment()
+        {
+            ApplicationBar.Buttons.Add(appBarSubmit);
         }
 
         private void ClearAppBar()
@@ -285,18 +307,18 @@ namespace HaoDouCookbookWP.Pages
 
         #region Comment Popup
 
-        //private BoardEdit _BoardEdit = null;
-        //private BoardEdit BoardEdit
-        //{
-        //    get
-        //    {
-        //        if (_BoardEdit == null)
-        //        {
-        //            _BoardEdit = new BoardEdit(this, AddBoard);
-        //        }
-        //        return _BoardEdit;
-        //    }
-        //}
+        private CommentControl _commentControl = null;
+        private CommentControl commentControl
+        {
+            get
+            {
+                if (_commentControl == null)
+                {
+                    _commentControl = new CommentControl();
+                }
+                return _commentControl;
+            }
+        }
 
         private PopupCotainer _popupContainer = null;
         private PopupCotainer popupContainer
@@ -311,11 +333,38 @@ namespace HaoDouCookbookWP.Pages
             }
         }
 
-        void popupContainer_OnClosing(object sender, EventArgs e)
+        private void ShowCommentPopup()
+        {
+            popupContainer.OnClosing += popupContainer_OnClosing;
+            popupContainer.Show(commentControl, PopupMode.Top, () => commentControl.OnShown());
+        }
+
+        private void popupContainer_OnClosing(object sender, EventArgs e)
         {
             popupContainer.OnClosing -= popupContainer_OnClosing;
-            //BoardEdit.OnClosing();
-            ShowAppBar();
+            commentControl.OnClosing();
+            ClearAppBar();
+            SetAppBarDefault();
+        }
+
+        private bool TrySubmitComment()
+        {
+            if (string.IsNullOrEmpty(commentControl.CommentString))
+            {
+                return true;
+            }
+
+            if (commentControl.IsRed)
+            {
+                commentControl.NotifyRed();
+                return false;
+            }
+
+            //TO-DO
+            //submit comment
+
+            return true;
+
         }
 
         #endregion
