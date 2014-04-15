@@ -122,6 +122,10 @@
     <Compile Include="Controls\ListMoreButton.xaml.cs">
       <DependentUpon>ListMoreButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PopupContainer\PopupCotainer.xaml.cs">
+      <DependentUpon>PopupCotainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupContainer\PopupMode.cs" />
     <Compile Include="Controls\RecommendationItem.xaml.cs">
       <DependentUpon>RecommendationItem.xaml</DependentUpon>
     </Compile>
@@ -206,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\PopupContainer\PopupCotainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\RecommendationItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,10 +257,14 @@
     <Content Include="Assets\AppBar\alarm.png" />
     <Content Include="Assets\AppBar\calendar.png" />
     <Content Include="Assets\AppBar\camera.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\edit.png" />
     <Content Include="Assets\AppBar\folder.png" />
+    <Content Include="Assets\AppBar\like.png" />
     <Content Include="Assets\AppBar\refresh.png" />
     <Content Include="Assets\AppBar\save.png" />
     <Content Include="Assets\AppBar\search.png" />
+    <Content Include="Assets\AppBar\upload.png" />
     <Content Include="Assets\Images\Bubble1.png" />
     <Content Include="Assets\Images\KitchenWare1.png" />
     <Content Include="Assets\Images\KitchenWare2.png" />

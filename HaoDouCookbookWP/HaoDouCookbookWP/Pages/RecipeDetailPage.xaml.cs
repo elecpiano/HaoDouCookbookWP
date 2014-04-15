@@ -33,6 +33,7 @@ namespace HaoDouCookbookWP.Pages
         {
             InitializeComponent();
             PrepareScrollViewer();
+            BuildApplicationBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -233,6 +234,88 @@ namespace HaoDouCookbookWP.Pages
             {
                 item.Recover();
             }
+        }
+
+        #endregion
+
+        #region App Bar
+
+        ApplicationBarIconButton appBarLike;
+        ApplicationBarIconButton appBarComment;
+
+        private void BuildApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+            ApplicationBar.Mode = ApplicationBarMode.Minimized;
+
+            // like
+            appBarLike = new ApplicationBarIconButton(new Uri("/Assets/AppBar/like.png", UriKind.Relative));
+            appBarLike.Text = "";//TO-DO
+            appBarLike.Click += appBarLike_Click;
+
+            // comment
+            appBarComment = new ApplicationBarIconButton(new Uri("/Assets/AppBar/edit.png", UriKind.Relative));//TO-DO
+            appBarComment.Text = "";//TO-DO
+            appBarComment.Click += appBarComment_Click;
+
+            ShowAppBar();
+        }
+
+        void appBarLike_Click(object sender, EventArgs e)
+        {
+        }
+
+        void appBarComment_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ShowAppBar()
+        {
+            ApplicationBar.Buttons.Add(appBarLike);
+            ApplicationBar.Buttons.Add(appBarComment);
+        }
+
+        private void ClearAppBar()
+        {
+            ApplicationBar.Buttons.Clear();
+            ApplicationBar.MenuItems.Clear();
+        }
+
+        #endregion
+
+        #region Comment Popup
+
+        //private BoardEdit _BoardEdit = null;
+        //private BoardEdit BoardEdit
+        //{
+        //    get
+        //    {
+        //        if (_BoardEdit == null)
+        //        {
+        //            _BoardEdit = new BoardEdit(this, AddBoard);
+        //        }
+        //        return _BoardEdit;
+        //    }
+        //}
+
+        private PopupCotainer _popupContainer = null;
+        private PopupCotainer popupContainer
+        {
+            get
+            {
+                if (_popupContainer == null)
+                {
+                    _popupContainer = new PopupCotainer(this);
+                }
+                return _popupContainer;
+            }
+        }
+
+        void popupContainer_OnClosing(object sender, EventArgs e)
+        {
+            popupContainer.OnClosing -= popupContainer_OnClosing;
+            //BoardEdit.OnClosing();
+            ShowAppBar();
         }
 
         #endregion
