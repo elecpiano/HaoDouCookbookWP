@@ -39,13 +39,13 @@
 
     <Style x:Key="Item_SplitBar_Bottom_Style" TargetType="Rectangle">
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Fill" Value="#ffa0a0a0"/>
+        <Setter Property="Fill" Value="#ffc0c0c0"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
     <Style x:Key="Item_SplitBar_Top_Style" TargetType="Rectangle">
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Fill" Value="#ffa0a0a0"/>
+        <Setter Property="Fill" Value="#ffc0c0c0"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
     </Style>
 
@@ -241,7 +241,7 @@
 
     <Style x:Key="HomePage_TopicTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
         <Setter Property="Margin" Value="32,12,8,8"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -258,6 +258,38 @@
         <Setter Property="Foreground" Value="#ffa0a0a0"/>
         <Setter Property="Margin" Value="12,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    
+    <!--recipe detail-->
+    <Style x:Key="RecipeDetailPage_AuthorText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="RecipeDetailPage_SubTitleText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="RecipeDetailPage_StepText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+
+    <Style x:Key="ReceipeDetailPage_SubTitleBar_Style" TargetType="Grid">
+        <Setter Property="Background" Value="#ffe0e0e0"/>
+        <Setter Property="Margin" Value="-12,0"/>
     </Style>
 
 </ResourceDictionary>

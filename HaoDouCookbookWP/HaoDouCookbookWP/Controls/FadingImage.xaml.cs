@@ -18,7 +18,7 @@ namespace HaoDouCookbookWP.Controls
         #region Property
 
         //duration
-        private static TimeSpan FadingDuration = TimeSpan.FromMilliseconds(500);
+        private static TimeSpan FadingDuration = TimeSpan.FromMilliseconds(750);
 
         //source
         private ImageSource _Source = null;

@@ -34,7 +34,7 @@ namespace HaoDouCookbookWP.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
+            topbar.Delay = 700d;
             topbar.ShowTitle("好豆菜谱");
 
             LoadRecommendations_Test();
@@ -66,6 +66,7 @@ namespace HaoDouCookbookWP.Pages
             {
                 swipeFromRight = false;
             }
+            topbar.Delay = 300d;
             topbar.Flirt(swipeFromRight);
             parnoramaPrevoiusSelectedIndex = panorama.SelectedIndex;
 

@@ -113,6 +113,9 @@
       <DependentUpon>FadingImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ImageToggleButton.cs" />
+    <Compile Include="Controls\IngredientItem.xaml.cs">
+      <DependentUpon>IngredientItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\KitchenWares.xaml.cs">
       <DependentUpon>KitchenWares.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
@@ -167,6 +171,7 @@
     <Compile Include="Utility\JsonSerializer.cs" />
     <Compile Include="Utility\NetworkHelper.cs" />
     <Compile Include="Utility\ReminderHelper.cs" />
+    <Compile Include="Utility\UIHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -188,6 +193,10 @@
     <Page Include="Controls\FadingImage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\IngredientItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\KitchenWares.xaml">
       <SubType>Designer</SubType>

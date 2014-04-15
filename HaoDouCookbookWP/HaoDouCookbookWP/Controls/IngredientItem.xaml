@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="HaoDouCookbookWP.Controls.IngredientItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textblock_1opt" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource RecipeDetailPage_AuthorText_Style}" HorizontalAlignment="Right" Opacity="0"/>
+            <TextBlock x:Name="textblock_0opt" Grid.Column="1" Text=":" Style="{StaticResource RecipeDetailPage_AuthorText_Style}" HorizontalAlignment="Center" Margin="8,0" Opacity="0"/>
+            <TextBlock x:Name="textblock_2opt" Grid.Column="2" Text="{Binding Amount}" Style="{StaticResource RecipeDetailPage_AuthorText_Style}" HorizontalAlignment="Left" Opacity="0"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textblock_1" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource RecipeDetailPage_AuthorText_Style}"/>
+            <TextBlock x:Name="textblock_2" Grid.Column="1" Text="{Binding Amount}" Style="{StaticResource RecipeDetailPage_AuthorText_Style}" HorizontalAlignment="Right"/>
+            <Rectangle Style="{StaticResource Item_SplitBar_Bottom_Style}" Grid.ColumnSpan="2" Margin="-12,0"/>
+        </Grid>
+    </Grid>
+</UserControl>

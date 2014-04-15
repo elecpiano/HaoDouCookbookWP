@@ -27,6 +27,19 @@ namespace HaoDouCookbookWP.Controls
 
         private bool Initiated;
 
+        private double _Delay = 300d;
+        public double Delay
+        {
+            get
+            {
+                return _Delay;
+            }
+            set
+            {
+                _Delay = value;
+            }
+        }
+
         public TopBar()
         {
             InitializeComponent();
@@ -49,7 +62,7 @@ namespace HaoDouCookbookWP.Controls
             int index = 0;
             foreach (var tb in titleTextBlocks)
             {
-                MoveAnimation.MoveFromTo(tb, 0, 0, 0, 0, TimeSpan.FromMilliseconds(index * 100 + 200),
+                MoveAnimation.MoveFromTo(tb, 0, 0, 0, 0, TimeSpan.FromMilliseconds(index * 100 + Delay),
                     fe0 => MoveAnimation.MoveFromTo(fe0, 0, 0, 0, -8, Constants.TOP_BAR_TITLE_DURATION_1,
                         fe1 => MoveAnimation.MoveFromTo(fe1, 0, -8, 0, 8, Constants.TOP_BAR_TITLE_DURATION_2,
                             fe2 => MoveAnimation.MoveFromTo(fe2, 0, 8, 0, 0, Constants.TOP_BAR_TITLE_DURATION_3, null))));
