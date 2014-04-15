@@ -85,10 +85,11 @@ namespace HaoDouCookbookWP.Controls
             Image image = new Image() { Source = new BitmapImage(new Uri(img, UriKind.Relative)), Stretch = Stretch.Uniform, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
             int radius = random.Next(radius_min, radius_max);
             image.Width = image.Height = radius;
-            double opacity_max = ((double)radius) / (double)radius_max;
+            double opacity = random.NextDouble();//((double)radius) / (double)radius_max;
+            image.Opacity = opacity;
             this.panel1.Children.Add(image);
 
-            int x = random.Next(0, (int)this.ActualWidth);
+            double x = random.NextDouble() * this.ActualWidth - image.Width * 0.5;
             int durationMilliseconds = random.Next(duration_min, duration_max);
             TimeSpan moveDuration = TimeSpan.FromMilliseconds(durationMilliseconds);
             MoveAnimation.MoveFromTo(image, x, this.ActualHeight + image.Height, x, 0 - image.Height, moveDuration,
@@ -104,7 +105,7 @@ namespace HaoDouCookbookWP.Controls
             //TimeSpan rotationDuration = TimeSpan.FromMilliseconds(0.9d * (double)durationMilliseconds);
             //RotateAnimation.RotateBy(image, rotationAmount, rotationDuration, null);
 
-            FadeAnimation.Fade(image, opacity_max, 0, TimeSpan.FromMilliseconds((double)durationMilliseconds * 0.9d), null);
+            //FadeAnimation.Fade(image, opacity, 0, TimeSpan.FromMilliseconds((double)durationMilliseconds * 0.9d), null);
         }
     }
 }

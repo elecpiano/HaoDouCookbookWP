@@ -34,7 +34,7 @@ namespace HaoDouCookbookWP.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
+
             topbar.ShowTitle("好豆菜谱");
 
             LoadRecommendations_Test();
@@ -136,6 +136,8 @@ namespace HaoDouCookbookWP.Pages
 
         double CategoryAnimationDuration = 400d;
         double CategoryAnimationDurationLong = 500d;
+        double ShowCategoryDelay = 100d;
+        double ShowCategoryDelayIncrement = 100d;
 
         private void InitCategories()
         {
@@ -174,8 +176,8 @@ namespace HaoDouCookbookWP.Pages
 
         private void ShowCategories()
         {
-            category1.Show(100d, CategoryAnimationDuration);
-            category2.Show(170d, CategoryAnimationDuration);
+            category1.Show(ShowCategoryDelay + ShowCategoryDelayIncrement * 0d, CategoryAnimationDuration);
+            category2.Show(ShowCategoryDelay + ShowCategoryDelayIncrement * 1d, CategoryAnimationDuration);
             category3.Show(240d, CategoryAnimationDuration);
             category4.Show(310d, CategoryAnimationDuration);
             category5.Show(380d, CategoryAnimationDuration);

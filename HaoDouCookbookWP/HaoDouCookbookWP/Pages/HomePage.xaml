@@ -9,7 +9,7 @@
     xmlns:controls="clr-namespace:HaoDouCookbookWP.Controls"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
 
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
@@ -40,29 +40,41 @@
                             <ItemsControl x:Name="recommendationListBox">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <VirtualizingStackPanel Margin="0,0,0,0"/>
+                                        <VirtualizingStackPanel Margin="0,6,0,0"/>
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Width="420" Height="204" Margin="0,0,0,12">
-                                            <Grid.Clip>
-                                                <RectangleGeometry Rect="0,0,420,204"/>
-                                            </Grid.Clip>
-                                            <controls:ContentButton Tap="Recommendation_Tap">
-                                                <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
-                                            </controls:ContentButton>
-                                            <Grid VerticalAlignment="Bottom" Style="{StaticResource TileMaskGrid_Style}" IsHitTestVisible="False">
-                                                <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_RecommendtationTitle_Style}"/>
+                                            <Grid Width="420" Height="204">
+                                                <Grid.Clip>
+                                                    <RectangleGeometry Rect="0,0,420,204"/>
+                                                </Grid.Clip>
+                                                <controls:ContentButton Tap="Recommendation_Tap">
+                                                    <controls:FadingImage Source="{Binding FoodImage}" Stretch="UniformToFill" Margin="-11,-4"/>
+                                                </controls:ContentButton>
                                             </Grid>
-                                            <Grid Style="{StaticResource TileFadeGrid_Style}"/>
+                                            <Grid Style="{StaticResource TileMaskGrid_Style}" Height="80"/>
                                             <controls:User DataContext="{Binding UserImage}" IsHitTestVisible="False" RenderTransformOrigin="0.5,0.5"
-                                                               Margin="0,0,6,-2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                                               Margin="0,0,12,0" VerticalAlignment="Top" HorizontalAlignment="Right">
                                                 <controls:User.RenderTransform>
                                                     <CompositeTransform Rotation="9" TranslateX="0" TranslateY="0"/>
                                                 </controls:User.RenderTransform>
                                             </controls:User>
+                                            <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,12,0,0" IsHitTestVisible="False">
+                                                <Grid.Background>
+                                                    <LinearGradientBrush EndPoint="0.8,0.5" StartPoint="0,0.5">
+                                                        <GradientStop Color="#E5000000"/>
+                                                        <GradientStop Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Background>
+                                                <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_RecommendtationTitle_Style}"
+                                                           Margin="8,4,48,4"/>
+                                            </Grid>
+                                            <!--<Grid Style="{StaticResource TileFadeGrid_Style}"/>-->
                                             <Image Style="{StaticResource TileEdge2L_Style}"/>
+                                            <Image Style="{StaticResource TileEdge2R_Style}"/>
+                                            
                                         </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
@@ -73,7 +85,7 @@
 
                 <!-- categories -->
                 <phone:PanoramaItem Header="菜谱分类">
-                    <Grid>
+                    <Grid HorizontalAlignment="Left" Margin="0,6,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -112,7 +124,7 @@
 
                 <!-- topic -->
                 <phone:PanoramaItem Header="专辑">
-                    <Grid >
+                    <Grid Margin="0,6,0,0">
                         <ScrollViewer x:Name="scrollViewerTopic">
                             <ItemsControl x:Name="topicListBox">
                                 <ItemsControl.ItemsPanel>
@@ -131,11 +143,9 @@
                                                     <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-11,-4"/>
                                                 </controls:ContentButton>
                                             </Grid>
-
-                                            <Grid VerticalAlignment="Bottom" Style="{StaticResource TileMaskGrid_Style}">
+                                            <Grid Style="{StaticResource TileMaskGrid_Style}">
                                                 <TextBlock Text="{Binding Title}" Style="{StaticResource HomePage_TopicTitle_Style}" />
                                             </Grid>
-
                                             <Image Style="{StaticResource TileEdge1L_Style}"/>
                                         </Grid>
                                     </DataTemplate>
@@ -147,7 +157,7 @@
 
                 <!-- user center -->
                 <phone:PanoramaItem Header="个人中心">
-                    <Grid>
+                    <Grid Margin="0,6,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -159,10 +169,6 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,0">
-                            <controls:User x:Name="account"/>
-                            <TextBlock Text="登录" Style="{StaticResource HomePage_LoginText_Style}"/>
-                        </StackPanel>
                         <controls:ContentButton Grid.Row="1" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0"  
                                                 Tap="userCenterItem1_Tap">
                             <controls:CategoryButton x:Name="userCenterItem1" />
@@ -172,16 +178,24 @@
                             <controls:CategoryButton x:Name="userCenterItem2" />
                         </controls:ContentButton>
 
-                        <controls:Bubbles x:Name="bubbles" Grid.Row="1" Grid.ColumnSpan="2" Width="420"/>
+                        <controls:Bubbles x:Name="bubbles" Grid.Row="1" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
+
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,0">
+                            <controls:User x:Name="account"/>
+                            <TextBlock Text="登录" Style="{StaticResource HomePage_LoginText_Style}"/>
+                        </StackPanel>
 
                     </Grid>
                 </phone:PanoramaItem>
             </phone:Panorama>
 
+            <!--<Rectangle Width="24" Fill="#80ff0000" HorizontalAlignment="Left"/>-->
         </Grid>
 
         <!--top bar-->
         <controls:TopBar x:Name="topbar"/>
+
+        <!--<Rectangle Grid.RowSpan="2" Width="12" Height="90" Fill="#80ff0000" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
 
     </Grid>
 

@@ -253,6 +253,7 @@
     <Content Include="Assets\Images\KitchenWareShadow3.png" />
     <Content Include="Assets\Images\TileEdge1L.png" />
     <Content Include="Assets\Images\TileEdge2L.png" />
+    <Content Include="Assets\Images\TileEdge2R.png" />
     <Content Include="Assets\Images\WhiteBand1.png" />
     <Content Include="Assets\Images\WhiteBand2.png" />
     <Content Include="Assets\Images\WhiteBand3.png" />

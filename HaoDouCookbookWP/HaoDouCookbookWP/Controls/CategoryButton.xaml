@@ -15,6 +15,22 @@
                 <CompositeTransform TranslateY="20"/>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock x:Name="titleTextBlock" Text="" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
+        <!--<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="48">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48"/>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="48"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="/Assets/Images/TileTextBaseL.png" Stretch="None" HorizontalAlignment="Right"/>
+            <Image Grid.Column="1" Source="/Assets/Images/TileTextBaseM.png" Stretch="Fill" HorizontalAlignment="Stretch"/>
+            <Image Grid.Column="2" Source="/Assets/Images/TileTextBaseR.png" Stretch="None" HorizontalAlignment="Left"/>
+        </Grid>-->
+        <Grid x:Name="textBasePanel">
+            <!--<Ellipse Fill="#2d000000" Width="100" Height="100"/>-->
+            <Ellipse Fill="#4d000000" Width="80" Height="80"/>
+        </Grid>
+
+        <TextBlock x:Name="titleTextBlock" Grid.Column="1" Text="abc" Style="{StaticResource HomePage_CategoryTitle_Style}"
+                       Margin="-8,0"/>
     </Grid>
 </UserControl>

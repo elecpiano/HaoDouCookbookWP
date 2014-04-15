@@ -7,7 +7,7 @@ namespace HaoDouCookbookWP.Controls
 {
     public partial class WhiteBands : UserControl
     {
-        private const double DURATION_MIN = 1500d;
+        private const double DURATION_MIN = 1000d;
         private TimeSpan ShowDuration = TimeSpan.FromMilliseconds(1800);
         private TimeSpan HideDuration = TimeSpan.FromMilliseconds(100);
 

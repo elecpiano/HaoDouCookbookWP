@@ -9,7 +9,7 @@
     xmlns:controls="clr-namespace:HaoDouCookbookWP.Controls"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True" >
+    shell:SystemTray.IsVisible="False" >
 
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
@@ -21,17 +21,61 @@
         <controls:TopBar x:Name="topbar"/>
 
         <!--content panel-->
-        <Grid Grid.Row="1" x:Name="contentPanel" Background="LightBlue">
-        	<Grid Height="100" Width="100">
-        		<Grid.Background>
-        			<LinearGradientBrush EndPoint="0.8,0.5" StartPoint="0,0.5">
-        				<GradientStop Color="Transparent"/>
-        				<GradientStop Color="#E5FFFFFF" Offset="1"/>
-        			</LinearGradientBrush>
-        		</Grid.Background>
-        	</Grid>
+        <Grid Grid.Row="1" x:Name="contentPanel">
+            <phone:Pivot>
+                <phone:Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Height="48" Margin="-10,-12,0,0">
+                            <TextBlock Text="{Binding}" Style="{StaticResource HomePage_SectionHeader_Text_Style}"/>
+                        </Grid>
+                    </DataTemplate>
+                </phone:Pivot.HeaderTemplate>
 
+                <phone:PivotItem x:Name="pivotItem1" Header="每日推荐">
+                    <Grid>
+                        <ScrollViewer>
+                            <ItemsControl x:Name="scheduleListBox">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </phone:PivotItem>
+
+                <phone:PivotItem x:Name="pivotItem2" Header="评论">
+                    <Grid>
+                        <ScrollViewer>
+                            <ItemsControl>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </phone:PivotItem>
+
+                <phone:PivotItem x:Name="pivotItem3" Header="相关知识">
+                    <Grid>
+                        <ScrollViewer>
+                            <ItemsControl>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </phone:PivotItem>
+
+            </phone:Pivot>
+
+            <!--<Rectangle Width="12" Fill="#80ff0000" HorizontalAlignment="Left"/>-->
         </Grid>
+
+        <!--<Rectangle Grid.RowSpan="2" Width="12" Height="90" Fill="#80ff0000" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
 
     </Grid>
 

@@ -158,6 +158,8 @@
     </Style>
 
     <Style x:Key="TileMaskGrid_Style" TargetType="Grid">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -187,7 +189,7 @@
         <Setter Property="Source" Value="/Assets/Images/TileEdge1L.png"/>
         <Setter Property="Stretch" Value="None"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="-1,0,0,0"/>
     </Style>
 
@@ -197,7 +199,16 @@
         <Setter Property="Stretch" Value="None"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
-        <Setter Property="Margin" Value="0,0,0,8"/>
+        <Setter Property="Margin" Value="-1,0,0,-1"/>
+    </Style>
+
+    <Style x:Key="TileEdge2R_Style" TargetType="Image">
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="Source" Value="/Assets/Images/TileEdge2R.png"/>
+        <Setter Property="Stretch" Value="None"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Margin" Value="0,0,-1,-1"/>
     </Style>
 
     <!--home page-->
@@ -218,22 +229,20 @@
     <Style x:Key="HomePage_RecommendtationTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="16,12,8,8"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
     <Style x:Key="HomePage_CategoryTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="HomePage_TopicTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="16,12,8,8"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="Margin" Value="32,12,8,8"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>

@@ -26,11 +26,19 @@ namespace HaoDouCookbookWP.Controls
         {
             this.titleTextBlock.Text = title;
             this.ellipse.Fill = new SolidColorBrush(ColorConverter.Convert(colorHex));
+            //this.textBasePanel.Opacity = 0d;
         }
 
         public void Show(double delay, double duration)
         {
-            ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 0.05d, 0.05d, TimeSpan.FromMilliseconds(delay), fe => ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 1d, 1d, TimeSpan.FromMilliseconds(duration), null));
+            ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 0.05d, 0.05d, TimeSpan.FromMilliseconds(delay),
+                fe =>
+                {
+                    ScaleAnimation.ScaleFromTo(textBasePanel, 0d, 0d, 1d, 1d, TimeSpan.FromMilliseconds(duration), null);
+                    ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 1d, 1d, TimeSpan.FromMilliseconds(duration), null);
+                    
+                });
+
             Hidden = false;
         }
 
@@ -42,10 +50,12 @@ namespace HaoDouCookbookWP.Controls
             }
             if (withTransition)
             {
+                ScaleAnimation.ScaleFromTo(textBasePanel, 1d, 1d, 0d, 0d, TimeSpan.FromMilliseconds(duration), null);
                 ScaleAnimation.ScaleFromTo(ellipse, 1d, 1d, 1, 1d, TimeSpan.FromMilliseconds(delay), fe => ScaleAnimation.ScaleFromTo(ellipse, 1d, 1d, 0.05d, 0.05d, TimeSpan.FromMilliseconds(duration), null));
             }
             else
             {
+                ScaleAnimation.ScaleFromTo(textBasePanel, 1d, 1d, 0d, 0d, TimeSpan.FromMilliseconds(0d), null);
                 ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 0.05d, 0.05d, TimeSpan.FromMilliseconds(0d), null);
             }
             Hidden = true;
