@@ -40,7 +40,7 @@ namespace HaoDouCookbookWP.Pages
 
             RecipeID = NavigationContext.QueryString[NaviParam.RECIPE_ID];
             this.topbar.ShowTitle("写评论");
-            this.commentTextBox.Focus();
+            //this.commentTextBox.Focus();
         }
 
         #endregion
