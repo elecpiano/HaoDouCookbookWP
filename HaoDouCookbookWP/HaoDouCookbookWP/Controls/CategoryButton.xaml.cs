@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using HaoDouCookbookWP.Animations;
 using System.Windows.Media;
 using HaoDouCookbookWP.Utility;
@@ -36,7 +29,6 @@ namespace HaoDouCookbookWP.Controls
                 {
                     ScaleAnimation.ScaleFromTo(textBasePanel, 0d, 0d, 1d, 1d, TimeSpan.FromMilliseconds(duration), null);
                     ScaleAnimation.ScaleFromTo(ellipse, 0.05d, 0.05d, 1d, 1d, TimeSpan.FromMilliseconds(duration), null);
-                    
                 });
 
             Hidden = false;

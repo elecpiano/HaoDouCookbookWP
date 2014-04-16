@@ -40,6 +40,11 @@ namespace HaoDouCookbookWP.Pages
 
             RecipeID = NavigationContext.QueryString[NaviParam.RECIPE_ID];
             this.topbar.ShowTitle("写评论");
+            //this.kitchenWares.Hit();
+        }
+
+        private void TextBox_Loaded(object sender, RoutedEventArgs e)
+        {
             //this.commentTextBox.Focus();
         }
 
@@ -106,6 +111,8 @@ namespace HaoDouCookbookWP.Pages
         }
 
         #endregion
+
+
 
 
     }

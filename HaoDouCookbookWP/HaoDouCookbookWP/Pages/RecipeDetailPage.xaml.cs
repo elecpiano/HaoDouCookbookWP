@@ -41,6 +41,8 @@ namespace HaoDouCookbookWP.Pages
             LoadData_Test();
 
             this.topbar.ShowTitle(RecipeName);
+            //this.kitchenWares.Hit();
+
             Rendering = true;
         }
 

@@ -76,6 +76,7 @@ namespace HaoDouCookbookWP.Controls
             {
                 Initiate(title);
             }
+            Flirt();
         }
 
     }

@@ -24,6 +24,8 @@ namespace HaoDouCookbookWP
     {
         public const string RECIPE_ID = "recipe_id";
         public const string RECIPE_NAME = "recipe_name";
+
+        public const string CATEGORY_ID = "category_id";
     }
 
     public class Global

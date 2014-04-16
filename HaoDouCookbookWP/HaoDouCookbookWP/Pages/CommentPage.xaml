@@ -25,12 +25,13 @@
         <!--content panel-->
         <Grid Grid.Row="1" x:Name="contentPanel" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="280"/>
+                <RowDefinition Height="240"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border Style="{StaticResource TextBox_Border_Style}" Margin="12" />
-            <TextBox x:Name="commentTextBox" TextWrapping="Wrap" TextChanged="commentTextBox_TextChanged"/>
+            <TextBox x:Name="commentTextBox" TextWrapping="Wrap" Background="#80ffffff"
+                     Loaded="TextBox_Loaded" TextChanged="commentTextBox_TextChanged"/>
             <TextBlock x:Name="countTextBlock" Text="0/140" Grid.Row="1" Style="{StaticResource CharacterCountText_Style}"
                    RenderTransformOrigin="1, 0.5">
                 <TextBlock.RenderTransform>

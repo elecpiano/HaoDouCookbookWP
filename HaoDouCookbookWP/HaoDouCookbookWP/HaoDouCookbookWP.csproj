@@ -105,7 +105,13 @@
     <Compile Include="Controls\CategoryButton.xaml.cs">
       <DependentUpon>CategoryButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CategoryTabHeader.xaml.cs">
+      <DependentUpon>CategoryTabHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ContentButton.cs" />
+    <Compile Include="Controls\SubCategoryButton.xaml.cs">
+      <DependentUpon>SubCategoryButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CuteToast.xaml.cs">
       <DependentUpon>CuteToast.xaml</DependentUpon>
     </Compile>
@@ -150,9 +156,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\Recommendation.cs" />
+    <Compile Include="Pages\CategoryListPage.xaml.cs">
+      <DependentUpon>CategoryListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -195,6 +205,14 @@
     <Page Include="Controls\CategoryButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CategoryTabHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SubCategoryButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CuteToast.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +261,10 @@
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CategoryListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\HomePage.xaml">
       <Generator>MSBuild:Compile</Generator>

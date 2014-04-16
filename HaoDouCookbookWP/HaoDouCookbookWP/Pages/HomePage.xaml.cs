@@ -34,8 +34,9 @@ namespace HaoDouCookbookWP.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            topbar.Delay = 700d;
-            topbar.ShowTitle("好豆菜谱");
+            this.topbar.Delay = 700d;
+            this.topbar.ShowTitle("好豆菜谱");
+            //kitchenWares.Hit();
 
             LoadRecommendations_Test();
             LoadTopics_Test();
@@ -153,7 +154,10 @@ namespace HaoDouCookbookWP.Pages
 
         private void category1_Tap(object sender, GestureEventArgs e)
         {
-
+            string categoryId = "1";//TO-DO
+            string[] paramArray = new string[] { NaviParam.CATEGORY_ID, categoryId };
+            string strUri = string.Format("/Pages/CategoryListPage.xaml?{0}={1}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
 
         private void category2_Tap(object sender, GestureEventArgs e)
