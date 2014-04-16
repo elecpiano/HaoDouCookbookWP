@@ -98,23 +98,23 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <controls:ContentButton Grid.Row="0" Grid.Column="0" Width="204" Height="204" Margin="0,0,0,0" 
-                                                Tap="category1_Tap">
+                                                Tap="category1_Tap" Tag="1">
                             <controls:CategoryButton x:Name="category1" />
                         </controls:ContentButton>
                         <controls:ContentButton Grid.Row="0" Grid.Column="1" Width="204" Height="204" Margin="12,0,0,0" 
-                                                Tap="category2_Tap">
+                                                Tap="category1_Tap" Tag="2">
                             <controls:CategoryButton x:Name="category2" />
                         </controls:ContentButton>
                         <controls:ContentButton Grid.Row="1" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0"  
-                                                Tap="category3_Tap">
+                                                Tap="category1_Tap" Tag="3">
                             <controls:CategoryButton x:Name="category3" />
                         </controls:ContentButton>
                         <controls:ContentButton Grid.Row="1" Grid.Column="1" Width="204" Height="204" Margin="12,12,0,0"  
-                                                Tap="category4_Tap">
+                                                Tap="category1_Tap" Tag="4">
                             <controls:CategoryButton x:Name="category4" />
                         </controls:ContentButton>
                         <controls:ContentButton Grid.Row="2" Grid.Column="0" Width="204" Height="204" Margin="0,12,0,0" 
-                                                Tap="category5_Tap">
+                                                Tap="category1_Tap" Tag="5">
                             <controls:CategoryButton x:Name="category5" />
                         </controls:ContentButton>
 

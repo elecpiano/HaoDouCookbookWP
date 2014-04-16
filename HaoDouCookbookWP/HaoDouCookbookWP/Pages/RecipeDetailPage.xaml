@@ -28,7 +28,7 @@
             <phone:Pivot x:Name="pivot" SelectionChanged="Pivot_SelectionChanged">
                 <phone:Pivot.HeaderTemplate>
                     <DataTemplate>
-                        <Grid Height="80" Margin="-10,-12,0,8">
+                        <Grid Height="64" Margin="-10,-12,0,8">
                             <TextBlock Text="{Binding}" Style="{StaticResource PivotHeader_Text_Style}"/>
                         </Grid>
                     </DataTemplate>

@@ -7,6 +7,7 @@ using System.Windows.Input;
 using HaoDouCookbookWP.Models;
 using HaoDouCookbookWP.Utility;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace HaoDouCookbookWP.Pages
 {
@@ -149,30 +150,10 @@ namespace HaoDouCookbookWP.Pages
 
         private void category1_Tap(object sender, GestureEventArgs e)
         {
-            string categoryId = "1";//TO-DO
+            string categoryId = ((FrameworkElement)sender).Tag.ToString();// "1";//TO-DO
             string[] paramArray = new string[] { NaviParam.CATEGORY_ID, categoryId };
             string strUri = string.Format("/Pages/CategoryListPage.xaml?{0}={1}", paramArray);
             NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
-        }
-
-        private void category2_Tap(object sender, GestureEventArgs e)
-        {
-
-        }
-
-        private void category3_Tap(object sender, GestureEventArgs e)
-        {
-
-        }
-
-        private void category4_Tap(object sender, GestureEventArgs e)
-        {
-
-        }
-
-        private void category5_Tap(object sender, GestureEventArgs e)
-        {
-
         }
 
         private void ShowCategories()
@@ -203,7 +184,10 @@ namespace HaoDouCookbookWP.Pages
 
         private void Topic_Tap(object sender, GestureEventArgs e)
         {
-
+            Topic topic = sender.GetDataContext<Topic>();
+            string[] paramArray = new string[] { NaviParam.CATEGORY_ID, topic.ID, NaviParam.CATEGORY_NAME, topic.Title };
+            string strUri = string.Format("/Pages/CategoryPage.xaml?{0}={1}&{2}={3}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
 
         ObservableCollection<Topic> topicList = new ObservableCollection<Topic>();
@@ -284,7 +268,9 @@ namespace HaoDouCookbookWP.Pages
 
         private void userCenterItem1_Tap(object sender, GestureEventArgs e)
         {
-
+            string[] paramArray = new string[] { NaviParam.CATEGORY_ID, "", NaviParam.CATEGORY_NAME, "喜欢的菜谱" };
+            string strUri = string.Format("/Pages/CategoryPage.xaml?{0}={1}&{2}={3}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
 
         private void userCenterItem2_Tap(object sender, GestureEventArgs e)
