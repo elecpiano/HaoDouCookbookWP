@@ -1,0 +1,62 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="HaoDouCookbookWP.Pages.CategoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:HaoDouCookbookWP.Controls"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False" >
+
+    <UserControl.Resources>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:KitchenWares x:Name="kitchenWares"/>
+
+        <!--content panel-->
+        <Grid Grid.Row="1" x:Name="contentPanel" >
+            <ScrollViewer>
+                <ItemsControl x:Name="categoryListBox">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:ContentButton Margin="12,0,0,0" Tap="categoryItem_Tap">
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Width="160" Height="160" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                                        <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                    </Border>
+                                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource CategoryPage_ItemTitle_Style}"/>
+                                        <TextBlock Text="{Binding Description}" Style="{StaticResource CategoryPage_ItemDescription_Style}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </controls:ContentButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <!--top bar-->
+        <controls:TopBar x:Name="topbar" />
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

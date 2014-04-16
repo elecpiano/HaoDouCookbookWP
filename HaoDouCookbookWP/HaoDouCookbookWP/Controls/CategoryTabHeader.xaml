@@ -69,8 +69,8 @@
             <Ellipse x:Name="ellipse" Fill="#4d000000" Width="64" Height="64"/>
         </Grid>
 
-        <TextBlock x:Name="titleTextBlockDark" Text="{Binding Title}" Style="{StaticResource HomePage_CategoryTitle_Style}" 
+        <TextBlock x:Name="titleTextBlockDark" Text="{Binding Name}" Style="{StaticResource HomePage_CategoryTitle_Style}" 
                    Foreground="#ff000000"/>
-        <TextBlock x:Name="titleTextBlock" Text="{Binding Title}" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
+        <TextBlock x:Name="titleTextBlock" Text="{Binding Name}" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
     </Grid>
 </UserControl>

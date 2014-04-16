@@ -8,16 +8,19 @@ using System.Threading.Tasks;
 namespace HaoDouCookbookWP.Models
 {
     [DataContract]
-    public class Category
+    public class Comment
     {
         [DataMember(Name="id")]
         public string ID { get; set; }
 
-        [DataMember(Name = "name")]
-        public string Name { get; set; }
+        [DataMember(Name = "content")]
+        public string Content { get; set; }
 
-        [IgnoreDataMember]
-        public string Color { get; set; }
+        [DataMember(Name = "submitter")]
+        public string Submitter { get; set; }
+
+        [DataMember(Name = "date")]
+        public DateTime Date { get; set; }
 
     }
 }

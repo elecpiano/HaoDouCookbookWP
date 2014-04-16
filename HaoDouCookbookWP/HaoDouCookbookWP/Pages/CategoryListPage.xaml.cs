@@ -36,13 +36,15 @@ namespace HaoDouCookbookWP.Pages
         {
             base.OnNavigatedTo(e);
 
-            ActiveCategoryID = NavigationContext.QueryString[NaviParam.CATEGORY_ID];
+            if (!dataLoaded)
+            {
+                ActiveCategoryID = NavigationContext.QueryString[NaviParam.CATEGORY_ID];
+                LoadData_Test();
+            }
 
             this.topbar.Delay = 300d;
             this.topbar.ShowTitle("好豆菜谱");
             //kitchenWares.Hit();
-
-            LoadData_Test();
         }
 
         #endregion
@@ -150,11 +152,12 @@ namespace HaoDouCookbookWP.Pages
                 int row = i / 3;
                 int col = i % 3;
                 SubCategoryButton button = new SubCategoryButton();
+                button.Tap += button_Tap;
                 button.SetValue(Grid.RowProperty, row);
                 button.SetValue(Grid.ColumnProperty, col);
                 subCategoryListPanel.Children.Add(button);
                 //button.Init(i.ToString(), colorHex);
-                button.DataContext = new Category() { Title = i.ToString(), Color = colorHex };
+                button.DataContext = new Category() { Name = "快手菜", Color = colorHex };//TO-DO
                 delayIncremental -= 3d;
                 if (delayIncremental < 0d)
                 {
@@ -163,6 +166,14 @@ namespace HaoDouCookbookWP.Pages
                 delay += delayIncremental;//Global.RANDOM.NextDouble() * 300d;
                 button.Show(delay, 300d);
             }
+        }
+
+        void button_Tap(object sender, GestureEventArgs e)
+        {
+            Category category = sender.GetDataContext<Category>();
+            string[] paramArray = new string[] { NaviParam.CATEGORY_ID, category.ID, NaviParam.CATEGORY_NAME, category.Name };
+            string strUri = string.Format("/Pages/CategoryPage.xaml?{0}={1}&{2}={3}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
 
         #endregion
@@ -177,13 +188,14 @@ namespace HaoDouCookbookWP.Pages
                 return;
             }
 
-            categories.Add(new Category() { ID = "1", Title = "菜式菜品", Color = "#FF1BA1E2" });
-            categories.Add(new Category() { ID = "2", Title = "菜系", Color = "#FFA4C400" });
-            categories.Add(new Category() { ID = "3", Title = "人群功效", Color = "#FFC72D57" });
-            categories.Add(new Category() { ID = "4", Title = "食材", Color = "#FFF0A30A" });
-            categories.Add(new Category() { ID = "5", Title = "场景", Color = "#FF76608A" });
+            categories.Add(new Category() { ID = "1", Name = "菜式菜品", Color = "#FF1BA1E2" });
+            categories.Add(new Category() { ID = "2", Name = "菜系", Color = "#FFA4C400" });
+            categories.Add(new Category() { ID = "3", Name = "人群功效", Color = "#FFC72D57" });
+            categories.Add(new Category() { ID = "4", Name = "食材", Color = "#FFF0A30A" });
+            categories.Add(new Category() { ID = "5", Name = "场景", Color = "#FF76608A" });
 
             PopulateCategories();
+            dataLoaded = true;
         }
 
         #endregion

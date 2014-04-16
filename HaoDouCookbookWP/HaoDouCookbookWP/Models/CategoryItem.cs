@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace HaoDouCookbookWP.Models
 {
     [DataContract]
-    public class Category
+    public class CategoryItem
     {
         [DataMember(Name="id")]
         public string ID { get; set; }
@@ -16,8 +16,10 @@ namespace HaoDouCookbookWP.Models
         [DataMember(Name = "name")]
         public string Name { get; set; }
 
-        [IgnoreDataMember]
-        public string Color { get; set; }
+        [DataMember(Name = "desc")]
+        public string Description { get; set; }
 
+        [DataMember(Name = "img")]
+        public string Image { get; set; }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
@@ -11,7 +7,6 @@ using System.Windows.Input;
 using HaoDouCookbookWP.Models;
 using HaoDouCookbookWP.Utility;
 using System.Collections.ObjectModel;
-using HaoDouCookbookWP.Animations;
 
 namespace HaoDouCookbookWP.Pages
 {

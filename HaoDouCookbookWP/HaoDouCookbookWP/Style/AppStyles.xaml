@@ -165,6 +165,7 @@
     <Style x:Key="TileMaskGrid_Style" TargetType="Grid">
         <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="MinHeight" Value="80"/>
         <Setter Property="Background">
             <Setter.Value>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -250,7 +251,7 @@
         <Setter Property="Margin" Value="32,12,8,8"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
     <Style x:Key="HomePage_UserBorder_Style" TargetType="Border">
@@ -265,13 +266,28 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     
-    <!--recipe detail-->
+    <!--recipe detail page-->
+    <Style x:Key="PivotHeader_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    
     <Style x:Key="RecipeDetailPage_AuthorText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="Margin" Value="0,8,0,8"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+    <Style x:Key="RecipeDetailPage_ItemText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="Foreground" Value="#ff000000"/>
         <Setter Property="Margin" Value="0,8,0,8"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
     <Style x:Key="RecipeDetailPage_SubTitleText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
@@ -304,6 +320,21 @@
         <Setter Property="HorizontalAlignment" Value="Right"/>
     </Style>
 
+    <Style x:Key="RecipeDetailPage_CommentText_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
+    <Style x:Key="RecipeDetailPage_CommentSubmitter_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff808080"/>
+        <Setter Property="Margin" Value="0,8,0,12"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
     <!--category list page-->
     <Style x:Key="CategoryListPage_CategoryTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>
@@ -312,4 +343,18 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
+    <!--category page-->
+    <Style x:Key="CategoryPage_ItemTitle_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="Foreground" Value="#ff2d2d2d"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="CategoryPage_ItemDescription_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff808080"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+    
 </ResourceDictionary>

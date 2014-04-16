@@ -40,9 +40,9 @@
             <ScrollViewer x:Name="subCategoryScrollViewer" Grid.Column="1">
                 <Grid x:Name="subCategoryListPanel" HorizontalAlignment="Left">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="115"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                     </Grid.RowDefinitions>

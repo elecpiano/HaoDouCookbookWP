@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HaoDouCookbookWP.Animations;
 using HaoDouCookbookWP.Controls;
+using System.Collections.ObjectModel;
 
 namespace HaoDouCookbookWP.Pages
 {
@@ -27,6 +28,10 @@ namespace HaoDouCookbookWP.Pages
         public RecipeDetailPage()
         {
             InitializeComponent();
+
+            this.commentListBox.ItemsSource = commentList;
+            this.articleListBox.ItemsSource = articleList;
+
             PrepareScrollViewer();
             BuildApplicationBar();
         }
@@ -37,11 +42,11 @@ namespace HaoDouCookbookWP.Pages
 
             RecipeID = NavigationContext.QueryString[NaviParam.RECIPE_ID];
             RecipeName = NavigationContext.QueryString[NaviParam.RECIPE_NAME];
-
-            LoadData_Test();
-
             this.topbar.ShowTitle(RecipeName);
             //this.kitchenWares.Hit();
+            LoadRecipe_Test();
+            LoadComments_Test();
+            LoadArticles_Test();
 
             Rendering = true;
         }
@@ -75,7 +80,7 @@ namespace HaoDouCookbookWP.Pages
 
         private void OnManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-            scrollTransform.TranslateY += e.DeltaManipulation.Translation.Y;
+            //scrollTransform.TranslateY += e.DeltaManipulation.Translation.Y;
         }
 
         private void OnManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
@@ -144,15 +149,11 @@ namespace HaoDouCookbookWP.Pages
 
         #endregion
 
-        #region Data
+        #region Recipe Data
 
         Recipe recipe = null;
 
-        private void LoadData()
-        {
-        }
-
-        private void LoadData_Test()
+        private void LoadRecipe_Test()
         {
             recipe = new Recipe();
             recipe.CoverImage = "/Assets/TestImages/1.jpg";
@@ -176,6 +177,39 @@ namespace HaoDouCookbookWP.Pages
             recipe.Tip = "炒这个菜不需要很多油。";
 
             this.recipePanel.DataContext = recipe;
+        }
+
+        #endregion
+
+        #region Comment Data
+
+        ObservableCollection<Comment> commentList = new ObservableCollection<Comment>();
+
+        private void LoadComments_Test()
+        {
+            commentList.Clear();
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+            commentList.Add(new Comment() { Submitter = "莫小北", Date = DateTime.Now, Content = "加了肉吃着更美味呀！喜欢！" });
+        }
+
+        #endregion
+
+        #region Article Data
+
+        ObservableCollection<Article> articleList = new ObservableCollection<Article>();
+
+        private void LoadArticles_Test()
+        {
+            articleList.Clear();
+            articleList.Add(new Article() { Title = "豆腐皮怎么做好吃" });
+            articleList.Add(new Article() { Title = "豆腐怎么做" });
+            articleList.Add(new Article() { Title = "豆腐不能和什么一起吃" });
+            articleList.Add(new Article() { Title = "产妇能吃豆腐吗" });
+            articleList.Add(new Article() { Title = "麻婆豆腐的家常做法" });
         }
 
         #endregion
@@ -274,7 +308,7 @@ namespace HaoDouCookbookWP.Pages
             //ClearAppBar();
             //SetAppBarForComment();
             //ShowCommentPopup();
-            string[] paramArray = new string[]{ NaviParam.RECIPE_ID, RecipeID};
+            string[] paramArray = new string[] { NaviParam.RECIPE_ID, RecipeID };
             string strUri = string.Format("/Pages/CommentPage.xaml?{0}={1}", paramArray);
             NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }

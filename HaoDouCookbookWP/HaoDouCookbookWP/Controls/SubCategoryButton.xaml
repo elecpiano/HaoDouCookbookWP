@@ -5,16 +5,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:HaoDouCookbookWP.Controls"
     mc:Ignorable="d"
-    Height="100" Width="100" Margin="10,0,0,10">
+    Height="105" Width="105" Margin="10,0,0,10">
 
-    <controls:ContentButton Width="100" Height="100">
+    <controls:ContentButton Width="105" Height="105">
         <Grid x:Name="LayoutRoot">
-            <Rectangle x:Name="rect" Fill="{Binding Color}" Width="100" Height="100" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="rect" Fill="{Binding Color}" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <CompositeTransform ScaleX="0" ScaleY="0"/>
                 </Rectangle.RenderTransform>
             </Rectangle>
-            <TextBlock x:Name="titleTextBlock" Grid.Column="1" Text="{Binding Title}" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
+            <TextBlock x:Name="titleTextBlock" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource HomePage_CategoryTitle_Style}"/>
         </Grid>
     </controls:ContentButton>
 </UserControl>
