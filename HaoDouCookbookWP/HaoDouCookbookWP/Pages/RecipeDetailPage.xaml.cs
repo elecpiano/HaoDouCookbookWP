@@ -272,8 +272,8 @@ namespace HaoDouCookbookWP.Pages
             //ClearAppBar();
             //SetAppBarForComment();
             //ShowCommentPopup();
-            string[] paramArray = new string[1] ;//{ NaviParam.RECIPE_ID, rec.ID, NaviParam.RECIPE_NAME, rec.Title };
-            string strUri = string.Format("/Pages/CommentlPage.xaml?{0}={1}&{2}={3}", paramArray);
+            string[] paramArray = new string[]{ NaviParam.RECIPE_ID, RecipeID};
+            string strUri = string.Format("/Pages/CommentPage.xaml?{0}={1}", paramArray);
             NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
         private void appBarSubmit_Click(object sender, EventArgs e)

@@ -20,6 +20,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <controls:KitchenWares x:Name="kitchenWares"/>
+
         <!--content panel-->
         <Grid Grid.Row="1" x:Name="contentPanel" >
             <Grid.RowDefinitions>
@@ -39,7 +41,6 @@
 
         <!--top bar-->
         <controls:TopBar x:Name="topbar" />
-        <controls:KitchenWares x:Name="kitchenWares"/>
 
     </Grid>
 
