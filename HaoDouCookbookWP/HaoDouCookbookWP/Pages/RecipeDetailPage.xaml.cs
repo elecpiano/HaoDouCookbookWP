@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using HaoDouCookbookWP.Models;
-using HaoDouCookbookWP.Utility;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Threading;
 using System.Windows.Media;
 using HaoDouCookbookWP.Animations;
 using HaoDouCookbookWP.Controls;
@@ -140,7 +135,8 @@ namespace HaoDouCookbookWP.Pages
                 swipeFromRight = false;
             }
 
-            topbar.Flirt(swipeFromRight);
+            topbar.Flirt();
+            kitchenWares.Hit(swipeFromRight);
             pivotPrevoiusSelectedIndex = pivot.SelectedIndex;
         }
 
@@ -273,9 +269,12 @@ namespace HaoDouCookbookWP.Pages
 
         void appBarComment_Click(object sender, EventArgs e)
         {
-            ClearAppBar();
-            SetAppBarForComment();
-            ShowCommentPopup();
+            //ClearAppBar();
+            //SetAppBarForComment();
+            //ShowCommentPopup();
+            string[] paramArray = new string[1] ;//{ NaviParam.RECIPE_ID, rec.ID, NaviParam.RECIPE_NAME, rec.Title };
+            string strUri = string.Format("/Pages/CommentlPage.xaml?{0}={1}&{2}={3}", paramArray);
+            NavigationService.Navigate(new Uri(strUri, UriKind.Relative));
         }
         private void appBarSubmit_Click(object sender, EventArgs e)
         {

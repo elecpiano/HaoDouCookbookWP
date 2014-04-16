@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border Style="{StaticResource Image_Border_Style}" Margin="12" />
+        <Border Style="{StaticResource TextBox_Border_Style}" Margin="12" />
         <TextBox x:Name="commentTextBox" TextWrapping="Wrap" TextChanged="commentTextBox_TextChanged"/>
         <TextBlock x:Name="countTextBlock" Text="0/140" Grid.Row="1" Style="{StaticResource CharacterCountText_Style}"
                    RenderTransformOrigin="1, 0.5">

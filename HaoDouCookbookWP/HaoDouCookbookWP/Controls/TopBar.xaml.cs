@@ -57,7 +57,7 @@ namespace HaoDouCookbookWP.Controls
             Initiated = true;
         }
 
-        public void Flirt(bool? swipeFromRight = null)
+        public void Flirt()
         {
             int index = 0;
             foreach (var tb in titleTextBlocks)
@@ -68,8 +68,6 @@ namespace HaoDouCookbookWP.Controls
                             fe2 => MoveAnimation.MoveFromTo(fe2, 0, 8, 0, 0, Constants.TOP_BAR_TITLE_DURATION_3, null))));
                 index++;
             }
-
-            kitchenWares.Hit(swipeFromRight);
         }
 
         public void ShowTitle(string title)
@@ -78,7 +76,6 @@ namespace HaoDouCookbookWP.Controls
             {
                 Initiate(title);
             }
-            Flirt();
         }
 
     }

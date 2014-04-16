@@ -194,7 +194,7 @@
 
         <!--top bar-->
         <controls:TopBar x:Name="topbar"/>
-
+        <controls:KitchenWares x:Name="kitchenWares"/>
         <!--<Rectangle Grid.RowSpan="2" Width="12" Height="90" Fill="#80ff0000" HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
 
     </Grid>

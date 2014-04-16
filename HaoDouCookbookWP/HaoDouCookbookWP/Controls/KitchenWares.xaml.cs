@@ -52,5 +52,10 @@ namespace HaoDouCookbookWP.Controls
             targetRotation *= -0.8d;
             rotationDuration *= 0.8d;
         }
+
+        private void LayoutRoot_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Hit();
+        }
     }
 }

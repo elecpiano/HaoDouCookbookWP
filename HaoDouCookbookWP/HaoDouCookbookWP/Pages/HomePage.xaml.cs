@@ -67,7 +67,8 @@ namespace HaoDouCookbookWP.Pages
                 swipeFromRight = false;
             }
             topbar.Delay = 300d;
-            topbar.Flirt(swipeFromRight);
+            topbar.Flirt();
+            kitchenWares.Hit(swipeFromRight);
             parnoramaPrevoiusSelectedIndex = panorama.SelectedIndex;
 
             switch (panorama.SelectedIndex)

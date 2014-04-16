@@ -4,7 +4,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="120" d:DesignWidth="120">
+    Height="120" Width="120"
+             VerticalAlignment="Top" HorizontalAlignment="Right" 
+             Margin="0,-12,36,-120">
     
 	<UserControl.Resources>
 		<Storyboard x:Name="StoryHitFromLeft">
@@ -606,7 +608,7 @@
         </Storyboard>
 	</UserControl.Resources>
     
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Tap="LayoutRoot_Tap">
 
         <Image x:Name="imageShadow1" Source="/Assets/Images/KitchenWareShadow3.png" Stretch="Uniform" HorizontalAlignment="Left" Margin="2,-4,0,-8" RenderTransformOrigin="0.5,0">
             <Image.RenderTransform>

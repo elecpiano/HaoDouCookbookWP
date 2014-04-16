@@ -10,7 +10,7 @@
     IsHitTestVisible="False">
 
     <Grid Margin="12,0,0,0">
-        <controls:KitchenWares x:Name="kitchenWares" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-12,36,-40"/>
+        <!--<controls:KitchenWares x:Name="kitchenWares" />-->
         <StackPanel x:Name="stackPanel" Orientation="Horizontal"/>
     </Grid>
 </UserControl>
